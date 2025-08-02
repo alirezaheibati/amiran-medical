@@ -8,7 +8,6 @@ import { useState } from "react";
 import ShowNavBtn from "./ShowNavBtn";
 import SideNav from "./SideNav";
 import TopNav from "./TopNav";
-import Hero from "./Hero";
 /**
  * Header component for the application layout.
  * Combines brand elements, navigation (responsive and localized), search, support, and authentication entry.
@@ -51,8 +50,6 @@ export default function Header() {
           <Link href={"/auth"}>ورود / ثبت نام</Link>
         </div>
       </nav>
-      {/* hero */}
-      <Hero />
     </header>
   );
 }
