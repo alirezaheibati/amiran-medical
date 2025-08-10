@@ -1,0 +1,25 @@
+import { BlogPostType } from "../_interface/BlogPostType";
+import { pool } from "@/app/_lib/db";
+/**
+ * Fetches the latest blog posts from the database.
+ *
+ * This function queries the `posts` table, ordering by the `created_at` field
+ * in ascending order and limiting the result to 4 entries. It returns the result
+ * as an array of `BlogPostType` objects.
+ *
+ * @async
+ * @function
+ * @returns {Promise<BlogPostType[]>} A promise that resolves to an array of blog post objects.
+ * @throws Will throw an error if the database query fails.
+ */
+export async function getLatestPosts(): Promise<BlogPostType[]> {
+  try {
+    const [rows] = await pool.execute(
+      "SELECT * FROM `posts` ORDER BY `created_at` ASC LIMIT 4"
+    );
+    return rows as BlogPostType[];
+  } catch (err) {
+    console.error("Error fetching latest posts:", err);
+    throw err;
+  }
+}
