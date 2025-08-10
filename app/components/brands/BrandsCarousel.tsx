@@ -38,7 +38,7 @@ export default function BrandsCarousel({ activeSlide }: BrandsCarouselProps) {
   return (
     <div className="w-full overflow-hidden relative">
       <div
-        className={`flex justify-around bg-amber-400 items-center w-[500%] sm:w-[333%] md:w-[250%] lg:w-[200%] xl:w-[166.66%] transition-transform duration-1000 ${
+        className={`flex justify-around items-center w-[500%] sm:w-[333%] md:w-[250%] lg:w-[200%] xl:w-[166.66%] transition-transform duration-1000 ${
           activeSlide === 0
             ? "translate-x-0"
             : activeSlide === 1
