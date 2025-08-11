@@ -42,3 +42,23 @@ export async function getBlogPostsCount(): Promise<number> {
     throw err;
   }
 }
+/**
+ * Fetches the first page of blog posts from the database.
+ *
+ * Executes a SQL query to retrieve the earliest 8 posts from the `posts` table,
+ * ordered by `created_at` in ascending order.
+ *
+ * @returns {Promise<BlogPostType[]>} An array of blog post objects.
+ * @throws Will log and rethrow any error encountered during the database query.
+ */
+export async function getPostsFirstPage(): Promise<BlogPostType[]> {
+  try {
+    const [rows] = await pool.execute(
+      "SELECT * FROM `posts` ORDER BY `created_at` ASC LIMIT 8"
+    );
+    return rows as BlogPostType[];
+  } catch (err) {
+    console.error("Error fetching latest posts:", err);
+    throw err;
+  }
+}
