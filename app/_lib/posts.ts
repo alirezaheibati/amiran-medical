@@ -23,3 +23,22 @@ export async function getLatestPosts(): Promise<BlogPostType[]> {
     throw err;
   }
 }
+/**
+ * Retrieves the total number of blog posts from the database.
+ *
+ * Executes a SQL query to count all entries in the `posts` table.
+ * Returns the count as a number. If the query fails, the error is logged and rethrown.
+ *
+ * @returns {Promise<number>} The total number of blog posts.
+ * @throws Will throw an error if the database query fails.
+ */
+export async function getBlogPostsCount(): Promise<number> {
+  try {
+    const [rows] = await pool.execute("SELECT COUNT(*) AS count FROM `posts`");
+    const count = (rows as any)[0]?.count ?? 0;
+    return count;
+  } catch (err) {
+    console.error("Error fetching blog post count:", err);
+    throw err;
+  }
+}
