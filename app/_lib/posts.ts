@@ -62,3 +62,28 @@ export async function getPostsFirstPage(): Promise<BlogPostType[]> {
     throw err;
   }
 }
+/**
+ * Retrieves blog posts from the database that belong to a specific category.
+ *
+ * Executes a SQL query to select all posts from the `posts` table
+ * where the `category` matches the provided parameter. Results are
+ * ordered by the `created_at` timestamp in ascending order.
+ *
+ * @param {string} category - The category name used to filter blog posts.
+ * @returns {Promise<BlogPostType[]>} A promise that resolves to an array of blog posts matching the category.
+ * @throws Will throw an error if the database query fails.
+ */
+export async function getCategoryPosts(
+  category: string
+): Promise<BlogPostType[]> {
+  try {
+    const [rows] = await pool.execute(
+      "SELECT * FROM `posts` WHERE `category` = ? ORDER BY `created_at` ASC",
+      [category]
+    );
+    return rows as BlogPostType[];
+  } catch (err) {
+    console.error("Error fetching posts of category:", err);
+    throw err;
+  }
+}
