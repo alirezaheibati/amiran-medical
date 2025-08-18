@@ -116,3 +116,29 @@ export async function getPostBySlug(slug: string): Promise<BlogPostType> {
     throw err;
   }
 }
+
+type CategoryCount = {
+  category: string;
+  count: number;
+};
+/**
+ * Retrieves a list of blog post categories along with the count of posts in each category.
+ *
+ * Executes a SQL query that groups posts by their `category` field and counts
+ * the number of posts in each group. Useful for generating category filters,
+ * tag clouds, or analytics dashboards.
+ *
+ * @returns {Promise<CategoryCount[]>} A promise that resolves to an array of category-count pairs.
+ * @throws Will throw an error if the database query fails.
+ */
+export async function getPostCategories(): Promise<CategoryCount[]> {
+  try {
+    const [rows] = await pool.execute(
+      "SELECT `category`, COUNT(*) AS count FROM `posts` GROUP BY `category`"
+    );
+    return rows as CategoryCount[];
+  } catch (err) {
+    console.error("Error fetching post categories:", err);
+    throw err;
+  }
+}
