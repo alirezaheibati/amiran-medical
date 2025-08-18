@@ -87,3 +87,32 @@ export async function getCategoryPosts(
     throw err;
   }
 }
+
+import { RowDataPacket } from "mysql2";
+/**
+ * Retrieves a blog post from the database by given slug.
+ *
+ * Executes a SQL query to select a post from the `posts` table
+ * where the `slug` matches the provided parameter.
+ *
+ * @param {string} slug - The post slug used to fetch blog posts.
+ * @returns {Promise<BlogPostType>} A promise that resolves to a blog post matching the slug.
+ * @throws Will throw an error if the database query fails.
+ */
+export async function getPostBySlug(slug: string): Promise<BlogPostType> {
+  try {
+    const [rows] = await pool.query<RowDataPacket[]>(
+      "SELECT * FROM `posts` WHERE `slug` = ? LIMIT 1",
+      [slug]
+    );
+
+    if (rows.length === 0) {
+      throw new Error("Post not found");
+    }
+
+    return rows[0] as BlogPostType;
+  } catch (err) {
+    console.error("Error fetching post by slug:", err);
+    throw err;
+  }
+}
