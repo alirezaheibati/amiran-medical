@@ -15,7 +15,7 @@ export default async function BlogPage() {
   const allPostsCount = await getBlogPostsCount();
   const blogPosts = await getPostsFirstPage();
   return (
-    <section className="max-w-7xl mx-auto px-4 py-8">
+    <section>
       <div className="flex justify-between items-center py-4 text-[#003d5d]">
         <h1 className="font-semibold text-2xl font-messiri">پست های وبلاگ</h1>
         <p className="flex justify-start items-center gap-0.5">
