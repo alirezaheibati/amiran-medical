@@ -16,7 +16,7 @@ interface PostCardProps {
 export default function PostCard({ post }: PostCardProps) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/blog/${post.category}/${post.slug}`}
       className="rounded-xl overflow-hidden border border-gray-200 hover:scale-105 transition-transform"
     >
       <div className="relative w-full aspect-square border-b border-b-gray-200">
