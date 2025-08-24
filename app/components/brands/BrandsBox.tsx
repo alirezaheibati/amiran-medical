@@ -55,7 +55,7 @@ export default function BrandsBox() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <section className="max-w-7xl mx-auto py-8 md:pt-24 overflow-hidden">
+    <section className="max-w-7xl mx-auto pb-16 overflow-hidden">
       <h2 className="font-messiri font-semibold text-3xl text-center text-[#003d5d] mb-4">
         محبوبترین برندها
       </h2>
