@@ -1,3 +1,6 @@
+"use client";
+import { useAppSelector } from "@/app/_hooks/useAppSelector";
+import { convertToPersianDigits } from "@/app/_utils/convertToPersianDigits";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -9,10 +12,14 @@ import Link from "next/link";
  * @returns {JSX.Element} JSX element for the cart button in header
  */
 export default function HeaderCartLink() {
+  const cartItems = useAppSelector((state) => state.cartItems.cart);
+  const cartItemsCount = cartItems.reduce((total, item) => {
+    return total + item.count;
+  }, 0);
   return (
     <div className="relative h-11 w-11 bg-[#003d5d]/10 rounded-xl flex overflow-hidden shadow-md">
       <p className="absolute bottom-1.5 right-1/2 translate-x-1/2 text-xs text-white">
-        ۳۱
+        {convertToPersianDigits(cartItemsCount)}
       </p>
       <Link
         href="/cart"
