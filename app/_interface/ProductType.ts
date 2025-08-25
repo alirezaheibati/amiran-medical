@@ -1,7 +1,7 @@
 /**
  * Represents a product in the store's inventory system.
  *
- * @property {string} id - Unique identifier for the product.
+ * @property {number} id - Unique identifier for the product.
  * @property {string} name - Name or title of the product.
  * @property {number} price - Price of the product in local currency (before discount).
  * @property {string} description - Textual description of the product's features or usage.
@@ -13,13 +13,13 @@
  * @property {number} discount - Discount applied to the product (absolute amount or percentage).
  */
 export type ProductType = {
-  id: string;
+  id: number;
   name: string;
   price: number;
   description: string;
   image: string;
   category: string;
-  date: string;
+  date: number;
   brand: string;
   amount: number;
   discount: number;
