@@ -39,7 +39,7 @@ const cartSlice = createSlice({
     removeItem(
       state,
       actions: {
-        payload: string;
+        payload: number;
       }
     ) {
       state.cart = state.cart.filter((item) => !(actions.payload === item.id));
@@ -52,7 +52,7 @@ const cartSlice = createSlice({
     increaseItemAmount(
       state,
       actions: {
-        payload: string;
+        payload: number;
       }
     ) {
       const item = state.cart.find((item) => actions.payload === item.id);
@@ -68,7 +68,7 @@ const cartSlice = createSlice({
     decreaseItemAmount(
       state,
       actions: {
-        payload: string;
+        payload: number;
       }
     ) {
       const item = state.cart.find((item) => actions.payload === item.id);
