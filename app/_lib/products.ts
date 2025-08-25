@@ -44,3 +44,28 @@ export async function getAllProductsOfCategory(
     throw err;
   }
 }
+/**
+ * Fetches a product from the database by its numeric ID.
+ *
+ * @param {number} id - The unique identifier of the product.
+ * @returns {Promise<ProductType>} - A promise that resolves to the product object.
+ * @throws Will throw an error if the product is not found or if the query fails.
+ */
+import { RowDataPacket } from "mysql2";
+export async function getProductById(id: number): Promise<ProductType> {
+  try {
+    const [rows] = await pool.query<RowDataPacket[]>(
+      "SELECT * FROM `products` WHERE `id` = ? LIMIT 1",
+      [id]
+    );
+
+    if (rows.length === 0) {
+      throw new Error("Product not found");
+    }
+
+    return rows[0] as ProductType;
+  } catch (err) {
+    console.error("Error fetching product by ID:", err);
+    throw err;
+  }
+}
