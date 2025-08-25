@@ -17,3 +17,28 @@ export async function getCategoriesList(): Promise<CategoryType[]> {
     throw err;
   }
 }
+/**
+ * Fetches a category from the database by its slug.
+ *
+ * @param {string} slug - The unique slug identifier for the category.
+ * @returns {Promise<CategoryType>} - A promise that resolves to the matching category object.
+ * @throws Will throw an error if no category is found or if the query fails.
+ */
+import { RowDataPacket } from "mysql2";
+export async function getCategoryBySlug(slug: string): Promise<CategoryType> {
+  try {
+    const [rows] = await pool.query<RowDataPacket[]>(
+      "SELECT * FROM `categories` WHERE `slug` = ? LIMIT 1",
+      [slug]
+    );
+
+    if (rows.length === 0) {
+      throw new Error("Category not found");
+    }
+
+    return rows[0] as CategoryType;
+  } catch (err) {
+    console.error("Error fetching category by slug:", err);
+    throw err;
+  }
+}
