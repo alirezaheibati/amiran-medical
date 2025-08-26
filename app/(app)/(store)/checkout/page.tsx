@@ -1,5 +1,7 @@
 import InvoiceSummary from "@/app/components/checkout/InvoiceSummary";
 import PaymentSection from "@/app/components/checkout/PaymentSection";
+import { verifyAuth } from "@/app/_lib/auth";
+import { redirect } from "next/navigation";
 /**
  * CheckoutPage component renders the checkout interface.
  * Includes payment method selection and invoice summary for the user's cart.
@@ -8,6 +10,11 @@ import PaymentSection from "@/app/components/checkout/PaymentSection";
  * @returns {JSX.Element} A responsive checkout layout with payment and invoice sections
  */
 export default async function CheckoutPage() {
+  const { user } = await verifyAuth();
+
+  if (!user) {
+    redirect("/auth");
+  }
   return (
     <section className="max-w-7xl px-4 mx-auto pt-8">
       <h1 className="text-3xl font-bold text-[#003d5b] mb-2 line-clamp-1 font-messiri">
