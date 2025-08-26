@@ -5,11 +5,13 @@ import { useDispatch } from "react-redux";
 import { ProductType } from "@/app/_interface/ProductType";
 import addCommasToString from "@/app/_utils/addCommasToPrice";
 import { convertToPersianDigits } from "@/app/_utils/convertToPersianDigits";
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { faCheck, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
+import OutOfStockCover from "./OutOfStockCover";
+import ProductDiscountBadge from "./ProductDiscountBadge";
+import RemoveFromCartBtn from "./RemoveFromCartBtn";
 
 interface ProductCardType {
   product: ProductType;
@@ -45,14 +47,10 @@ export default function ProductCard({ product }: ProductCardType) {
   return (
     <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all group">
       <div className="h-64 relative flex items-center justify-center overflow-hidden">
-        {isInCart && (
-          <button
-            className="flex justify-center items-center p-3 absolute right-4 top-4 z-10 text-white rounded-full bg-[#d1495b] hover:bg-[#d1495b]/90 cursor-pointer"
-            title="حذف"
-            onClick={removeItemHandler}
-          >
-            <FontAwesomeIcon icon={faTrashCan} className="block" />
-          </button>
+        {product.amount <= 0 && <OutOfStockCover />}
+        {isInCart && <RemoveFromCartBtn onRemoveFromCart={removeItemHandler} />}
+        {product.discount > 0 && (
+          <ProductDiscountBadge discount={product.discount} />
         )}
         <Image
           src={product.image}
@@ -74,8 +72,10 @@ export default function ProductCard({ product }: ProductCardType) {
         <div className="flex items-center justify-between">
           <div className="flex gap-2">
             <button
-              disabled={isInCart}
-              className="h-10 w-10 flex items-center justify-center rounded-full text-white cursor-pointer"
+              disabled={isInCart || product.amount <= 0}
+              className={`h-10 w-10 flex items-center justify-center rounded-full text-white ${
+                product.amount <= 0 ? "cursor-not-allowed" : "cursor-pointer"
+              }`}
               style={{ backgroundColor: isInCart ? "#34b233" : "#00798c" }}
               onClick={addItemToCartHandler}
             >
