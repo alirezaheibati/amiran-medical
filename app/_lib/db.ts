@@ -29,3 +29,20 @@ export const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
 });
+
+/**
+ * Establishes a MySQL database connection using environment variables.
+ *
+ * @returns A promise that resolves to the MySQL connection instance.
+ */
+import { drizzle } from "drizzle-orm/mysql2";
+const connection = await mysql.createConnection({
+  host: process.env.DB_HOST!,
+  user: process.env.DB_USER!,
+  password: process.env.DB_PASSWORD!,
+  database: process.env.DB_NAME!,
+});
+/**
+ * Initializes the Drizzle ORM with the established MySQL connection.
+ */
+export const db = drizzle(connection);
