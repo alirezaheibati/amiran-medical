@@ -69,3 +69,22 @@ export async function getProductById(id: number): Promise<ProductType> {
     throw err;
   }
 }
+/**
+ * Searches for products in the database whose names match the given term.
+ *
+ * @param term - The search keyword to match against product names.
+ * @returns A promise that resolves to an array of matching ProductType objects.
+ * @throws Will throw an error if the database query fails.
+ */
+export async function searchProducts(term: string): Promise<ProductType[]> {
+  try {
+    const [rows] = await pool.execute(
+      "SELECT * FROM `products` WHERE `name` LIKE ? ORDER BY `id` DESC",
+      [`%${term}%`]
+    );
+    return rows as ProductType[];
+  } catch (err) {
+    console.error("Error fetching searched products:", err);
+    throw err;
+  }
+}
