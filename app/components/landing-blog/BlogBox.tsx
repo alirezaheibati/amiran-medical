@@ -13,7 +13,7 @@ import BlogsHeading from "./BlogsHeading";
 export default async function BlogBox() {
   const posts = await getLatestPosts();
   return (
-    <section className="max-w-7xl mx-auto py-8 md:py-24 text-[#003d5d] overflow-hidden">
+    <section className="max-w-7xl mx-auto py-8 md:py-16 text-[#003d5d] overflow-hidden">
       <BlogsHeading />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-8 px-2 md:px-4">
         {posts.map((post) => (
