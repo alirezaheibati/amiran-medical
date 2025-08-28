@@ -32,7 +32,7 @@ export default function PriceFilter() {
     dispatch(itemsActions.setPrice({ min, max }));
     setSlideOne(min);
     setSlideTwo(max);
-  }, [items]);
+  }, [items, dispatch]);
 
   function slideOneFn(e: React.ChangeEvent<HTMLInputElement>) {
     if (+e.target.value >= slideTwo) {

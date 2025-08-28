@@ -4,7 +4,7 @@ import { cartSliceActions } from "@/app/_store/cart-slice";
 import { convertToPersianDigits } from "@/app/_utils/convertToPersianDigits";
 
 interface QuantityControlProps {
-  itemId: string;
+  itemId: number;
   quantity: number;
 }
 /**

@@ -47,7 +47,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     const cartItem: CartItemType = {
       ...product,
       count: count,
-      date: product.date.toString(),
+      date: product.date,
     };
 
     dispatch(cartSliceActions.addItem(cartItem));

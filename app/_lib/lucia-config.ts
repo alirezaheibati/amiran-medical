@@ -35,6 +35,7 @@ const lucia = new Lucia<LuciaUserAttributes>(adapter, {
    * @param data - Raw user data from the database
    * @returns Mapped user attributes
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getUserAttributes: (data: any): LuciaUserAttributes => ({
     username: data.username,
     email: data.email,

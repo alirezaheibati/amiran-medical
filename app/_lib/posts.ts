@@ -35,6 +35,7 @@ export async function getLatestPosts(): Promise<BlogPostType[]> {
 export async function getBlogPostsCount(): Promise<number> {
   try {
     const [rows] = await pool.execute("SELECT COUNT(*) AS count FROM `posts`");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const count = (rows as any)[0]?.count ?? 0;
     return count;
   } catch (err) {

@@ -3,9 +3,7 @@ import Breadcrumb from "@/app/components/blog/Breadcrumb";
 import Image from "next/image";
 
 interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 /**
  * Renders a blog post page based on the provided slug identifier.

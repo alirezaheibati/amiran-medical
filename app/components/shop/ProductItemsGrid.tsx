@@ -44,7 +44,7 @@ export default function ProductItemsGrid({
         })
       )
     );
-  }, [categoryProducts]);
+  }, [categoryProducts, dispatch]);
   return (
     <div className="w-full flex justify-start gap-2 items-start mt-2">
       <FilterModal filteredItemsCount={filteredItems.length} />

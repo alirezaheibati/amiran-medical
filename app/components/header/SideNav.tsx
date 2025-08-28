@@ -34,12 +34,12 @@ export default function SideNav({ showNav, onCloseNav }: SideNavProps) {
         >
           <FontAwesomeIcon icon={faXmark} className="text-3xl" />
         </button>
-        <NavItem href="/" title="خانه" isActive />
-        <NavItem href="/shop" title="فروشگاه" isActive={false} />
-        <NavItem href="/cooperate" title="همکاری در فروش" isActive={false} />
-        <NavItem href="/faq" title="پرسش‌های متداول" isActive={false} />
-        <NavItem href="/rules" title="قوانین" isActive={false} />
-        <NavItem href="/contact" title="تماس با ما" isActive={false} />
+        <NavItem href="/" title="خانه" />
+        <NavItem href="/shop" title="فروشگاه" />
+        <NavItem href="/cooperate" title="همکاری در فروش" />
+        <NavItem href="/faq" title="پرسش‌های متداول" />
+        <NavItem href="/rules" title="قوانین" />
+        <NavItem href="/contact" title="تماس با ما" />
       </ul>
     </div>
   );

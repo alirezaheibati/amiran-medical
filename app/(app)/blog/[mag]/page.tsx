@@ -3,9 +3,7 @@ import { convertToPersianDigits } from "@/app/_utils/convertToPersianDigits";
 import { mapPostCategoryToPersian } from "@/app/_utils/mapPostCatName";
 import BlogPostCard from "@/app/components/blog/BlogPostCard";
 interface BlogPostsCategoryPageProps {
-  params: {
-    mag: string;
-  };
+  params: Promise<{ mag: string }>;
 }
 /**
  * Renders a blog category page displaying all posts under a specific magazine category.
