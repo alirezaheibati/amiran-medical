@@ -122,7 +122,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             <FontAwesomeIcon icon={faShoppingBag} className="block" />
           </div>
         )}
-        <div className="bg-red-500 relative w-full max-w-[360px] aspect-square">
+        <div className="relative w-full max-w-[360px] aspect-square">
           <Image
             src={product?.image ?? "/images/placeholder.png"}
             alt={product?.name ?? "product image"}
