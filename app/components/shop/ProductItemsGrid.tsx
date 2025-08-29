@@ -46,7 +46,7 @@ export default function ProductItemsGrid({
     );
   }, [categoryProducts, dispatch]);
   return (
-    <div className="w-full flex justify-start gap-2 items-start mt-2">
+    <div className="w-full flex justify-start gap-2 items-start mt-2 pb-8">
       <FilterModal filteredItemsCount={filteredItems.length} />
       <section className="w-full md:w-2/3 lg:w-3/4">
         <SortSection />
