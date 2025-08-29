@@ -17,7 +17,7 @@ export default function ReturnLink({ href, title }: ReturnLinkProps) {
     <div className="mt-12 pt-6 border-t border-gray-200 text-left">
       <Link
         href={href}
-        className="inline-flex items-center text-[#00798c] hover:text-[#003d5b] transition-colors"
+        className="inline-flex items-center hover:text-[#00798c] text-[#003d5b] transition-colors"
       >
         {title}
         <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
