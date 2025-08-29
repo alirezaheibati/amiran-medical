@@ -36,6 +36,7 @@ export default function SideNav({ showNav, onCloseNav }: SideNavProps) {
         </button>
         <NavItem href="/" title="خانه" />
         <NavItem href="/shop" title="فروشگاه" />
+        <NavItem href="/blog" title="وبلاگ" />
         <NavItem href="/cooperate" title="همکاری در فروش" />
         <NavItem href="/faq" title="پرسش‌های متداول" />
         <NavItem href="/rules" title="قوانین" />
