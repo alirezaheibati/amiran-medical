@@ -14,7 +14,7 @@ export default async function PostCategories() {
   const categories = await getPostCategories();
 
   return (
-    <div className="rounded-lg border border-gray-200 p-4">
+    <div className="rounded-lg border border-gray-200 p-4 md:w-1/2 lg:w-full">
       <h1 className="font-semibold font-messiri">دسته بندی مطالب</h1>
       <hr className="mb-4 mt-3" />
       <ul className="flex flex-col justify-start items-start gap-2">
