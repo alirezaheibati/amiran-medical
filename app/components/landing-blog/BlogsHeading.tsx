@@ -11,12 +11,12 @@ export default function BlogsHeading() {
    */
   return (
     <div className="flex justify-between items-center px-2 md:px-4 mb-4">
-      <h2 className="font-messiri font-semibold text-2xl">
+      <h2 className="font-messiri font-semibold text-xl md:text-2xl">
         آخرین نوشته های <span className="hidden sm:inline">وبلاگ</span>
       </h2>
       <Link
         href={"/blog"}
-        className="font-semibold hover:opacity-80 hover:scale-105 transition-all flex justify-end items-center gap-1"
+        className="font-semibold text-sm sm:text-base hover:opacity-80 hover:scale-105 transition-all flex justify-end items-center gap-1"
       >
         <span>مشاهده همه</span>
         <FontAwesomeIcon icon={faArrowLeft} />
