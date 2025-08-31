@@ -59,15 +59,15 @@ export default function CoopertatePage() {
             }}
           >
             {({ values }) => (
-              <Form className="restaurant-form rounded-2xl bg-[#003d5d]/10 w-full max-w-[600px]     mx-auto p-8">
+              <Form className="restaurant-form rounded-2xl bg-[#003d5d]/10 w-full max-w-[700px] mx-auto p-8">
                 <h2 className="text-center font-semibold text-2xl mb-2 text-[#003d5d]">
                   ثبت درخواست همکاری در امیران تجهیز
                 </h2>
-                <p className="text-sm text-center mb-2">
+                <p className="text-sm text-center mb-12">
                   اطلاعات مجموعه خود را با دقت وارد کنید
                 </p>
-                <div className="flex justify-between items-center pt-4 gap-4">
-                  <div className="flex-1  h-16">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 mb-2 sm:mb-0">
+                  <div className="w-full sm:w-1/2 h-16">
                     <Field
                       id="name"
                       name="name"
@@ -81,7 +81,7 @@ export default function CoopertatePage() {
                       component="div"
                     />
                   </div>
-                  <div className="flex-1  h-16">
+                  <div className="w-full sm:w-1/2  h-16">
                     <Field
                       id="owner"
                       name="owner"
@@ -96,8 +96,8 @@ export default function CoopertatePage() {
                     />
                   </div>
                 </div>
-                <div className="flex justify-between items-center pt-4 gap-4 w-full">
-                  <div className="flex-1  h-16">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 mb-2 sm:mb-0">
+                  <div className="w-full sm:w-1/2 h-16">
                     <Field
                       id="ownerPhone"
                       name="ownerPhone"
@@ -111,7 +111,7 @@ export default function CoopertatePage() {
                       component="div"
                     />
                   </div>
-                  <div className="flex-1  h-16">
+                  <div className="w-full sm:w-1/2  h-16">
                     <Field
                       id="branches"
                       name="branches"
@@ -127,8 +127,8 @@ export default function CoopertatePage() {
                     />
                   </div>
                 </div>
-                <div className="flex justify-between items-start pt-4 gap-4 w-full">
-                  <div className="flex-1  h-16">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 mb-2 sm:mb-0">
+                  <div className="w-full sm:w-1/2  h-16">
                     <Field
                       as="select"
                       id="financialSoftware"
@@ -146,7 +146,7 @@ export default function CoopertatePage() {
                       component="div"
                     />
                   </div>
-                  <div className="flex-1  h-10 flex justify-start items-center gap-4">
+                  <div className="w-full sm:w-1/2 h-10 flex justify-start items-center gap-4">
                     <label className="block" htmlFor="hasDelivery">
                       پیک اختصاصی دارد؟
                     </label>
