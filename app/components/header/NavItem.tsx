@@ -1,9 +1,9 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 interface NavItemProps {
   title: string;
   href: string;
+  onCloseNav: () => void;
 }
 /**
  * Renders a single navigation list item with active state styling.
@@ -12,7 +12,12 @@ interface NavItemProps {
  * @param {NavItemProps} props - Component props
  * @returns {JSX.Element} The rendered navigation item
  */
-export default function NavItem({ title, href }: NavItemProps) {
+export default function NavItem({ title, href, onCloseNav }: NavItemProps) {
+  const router = useRouter();
+  function navigateHandler() {
+    onCloseNav();
+    router.push(href);
+  }
   const path = usePathname();
   return (
     <li
@@ -24,7 +29,7 @@ export default function NavItem({ title, href }: NavItemProps) {
           : "text-[#003d5d] font-medium"
       }`}
     >
-      <Link href={href}>{title}</Link>
+      <button onClick={navigateHandler}>{title}</button>
     </li>
   );
 }
