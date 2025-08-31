@@ -23,7 +23,7 @@ export default function ReviewsList({ reviews }: ReviewsListProps) {
   }
 
   return (
-    <div className="h-screen  relative overflow-x-hidden flex justify-center items-start flex-col gap-12 md:gap-16">
+    <div className="relative overflow-x-hidden flex justify-center items-start flex-col gap-12 md:gap-16 pt-16 pb-8">
       <div className="w-full">
         <h2 className="text-center w-full text-[#003d5b] font-messiri text-3xl md:text-4xl font-bold relative z-20 mb-2">
           آخرین نظرات خریداران
