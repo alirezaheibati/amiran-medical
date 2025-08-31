@@ -15,7 +15,7 @@ export default async function BlogBox() {
   return (
     <section className="max-w-7xl mx-auto py-8 md:py-16 text-[#003d5d] overflow-hidden">
       <BlogsHeading />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-8 px-2 md:px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8 px-4">
         {posts.map((post) => (
           <PostCard post={post} key={post.id} />
         ))}
