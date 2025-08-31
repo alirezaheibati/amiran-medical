@@ -19,9 +19,9 @@ export default async function BlogLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex justify-between items-start max-w-7xl mx-auto px-4 py-8 gap-6 text-[#003d5d]">
-      <div className="flex-3/4">{children}</div>
-      <article className="flex-1/4">
+    <main className="flex flex-col lg:flex-row justify-between items-start max-w-7xl mx-auto px-4 py-8 gap-6 text-[#003d5d]">
+      <div className="lg:w-3/4 w-full">{children}</div>
+      <article className="w-full lg:w-1/4 flex flex-col md:flex-row lg:flex-col justify-start items-stretch gap-4">
         <LatastPosts />
         <PostCategories />
       </article>
