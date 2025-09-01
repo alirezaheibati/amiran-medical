@@ -18,7 +18,7 @@ interface OrderSummaryProps {
  */
 export default function OrderSummary({ items }: OrderSummaryProps) {
   const orderTotal = items.reduce((total, item) => {
-    return total + item.price * item.amount;
+    return total + item.price * item.count;
   }, 0);
   const shippingPrice = 49000;
   const boxingPrice = 3000;

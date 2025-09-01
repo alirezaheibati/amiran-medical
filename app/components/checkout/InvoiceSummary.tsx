@@ -16,7 +16,7 @@ export default function InvoiceSummary() {
   const shippingPrice = 49000;
   const boxingPrice = 3000;
   const cartTotal = cartItems.reduce((total, item) => {
-    return total + item.amount * item.price;
+    return total + item.count * item.price;
   }, 0);
   return (
     <div className="lg:col-span-1 border border-gray-100 shadow-md p-4 rounded-xl text-[#003d5b]">
@@ -29,7 +29,7 @@ export default function InvoiceSummary() {
             <InvoiceSummaryRow
               title={item.name}
               price={item.price}
-              amount={item.amount}
+              amount={item.count}
               key={item.id}
             />
           ))}

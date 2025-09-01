@@ -50,7 +50,7 @@ export default function CartItemRow({ item }: CartItemRowProps) {
       </td>
       <td className="p-2 text-center border-b border-slate-200 py-5">
         <p className="text-sm text-slate-500">
-          {addCommasToString(convertToPersianDigits(item.price * item.amount))}
+          {addCommasToString(convertToPersianDigits(item.price * item.count))}
         </p>
       </td>
       <td className="p-2 text-center border-b border-slate-200 py-5">
