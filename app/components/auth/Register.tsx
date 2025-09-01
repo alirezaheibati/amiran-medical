@@ -89,7 +89,7 @@ export default function Register() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {() => (
+        {({ isSubmitting }) => (
           <Form>
             {/* Email */}
             <div className="w-full flex items-center h-10 border border-gray-200 rounded-lg mb-2">
@@ -196,8 +196,14 @@ export default function Register() {
               type="submit"
               className="w-full py-3 flex justify-center items-center gap-2 rounded-lg text-white/80 text-sm font-medium bg-[#003d5b]/95 hover:bg-[#003d5b] my-4 transition-all"
             >
-              ساخت اکانت
-              <FontAwesomeIcon icon={faCheck} />
+              {isSubmitting ? (
+                "صبر کنید..."
+              ) : (
+                <>
+                  <span>ساخت اکانت</span>
+                  <FontAwesomeIcon icon={faCheck} />
+                </>
+              )}
             </button>
           </Form>
         )}
