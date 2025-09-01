@@ -50,7 +50,7 @@ export default function Login() {
       if (!res.ok) {
         setErrors({ email: result.error });
       } else {
-        // Success: Redirect or show toast
+        // Success: Redirect
         router.push("/");
       }
     } catch (err) {
@@ -76,7 +76,7 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {() => (
+        {({ isSubmitting }) => (
           <Form>
             {/* Email Field */}
             <div className="w-full flex justify-start items-center h-10 border border-gray-200 rounded-lg mb-2">
@@ -141,8 +141,14 @@ export default function Login() {
               type="submit"
               className="w-full py-3 flex justify-center items-center gap-2 rounded-lg text-white/80 text-sm font-medium bg-[#003d5b]/95 hover:bg-[#003d5b] my-4 transition-all"
             >
-              ورود به اکانت
-              <FontAwesomeIcon icon={faArrowLeft} />
+              {isSubmitting ? (
+                "در حال ورود..."
+              ) : (
+                <>
+                  <span>ورود به اکانت</span>
+                  <FontAwesomeIcon icon={faArrowLeft} />
+                </>
+              )}
             </button>
           </Form>
         )}
