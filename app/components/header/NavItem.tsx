@@ -3,7 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 interface NavItemProps {
   title: string;
   href: string;
-  onCloseNav: () => void;
+  onCloseNav?: () => void;
 }
 /**
  * Renders a single navigation list item with active state styling.
@@ -15,7 +15,7 @@ interface NavItemProps {
 export default function NavItem({ title, href, onCloseNav }: NavItemProps) {
   const router = useRouter();
   function navigateHandler() {
-    onCloseNav();
+    if (onCloseNav) onCloseNav();
     router.push(href);
   }
   const path = usePathname();
